@@ -1,0 +1,42 @@
+URxvt.internalBorder: 10
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 96x28
+Xcursor.size: 1
+!Xft*dpi: 64
+URxvt.font: xft:monospace:style=Regular:size=9:antialias=true
+!URxvt.font: xft:Iosevka Nerd Font Mono:size=10:antialias=true
+!URxvt.font: xft:JetBrainsMonoNLNerdFont:size=10:antialias=true
+Xft*antialias: true
+URxvt*depth: 32
+URxvt.iso14755: false
+URxvt*scrollBar: true
+URxvt*scrollBar_right: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 100
+URxvt.perl-ext-common: resize-font
+
+!Save all the terminal output to a file ctrl+print / shift+print
+URxvt.print-pipe: cat > $HOME/scrollback
+
+! special
+URxvt*.foreground:     #ffffff
+*.background:             #000000
+!URxvt*.background:   [100]#000000
+URxvt*.cursorColor:    #c5c8c6
+! scrollbar
+URxvt*scrollColor:      #252525
+URxvt*troughColor:    #000000
+
+
+! sxiv
+Nsxiv*foreground:     #15539e
+!Nsxiv*background:   #000000
+
+Sxiv*foreground:      #15539e
+Sxiv*background:     #000000
+Sxiv.font: xft:monospace:style=Regular:size=9: antialias=true

@@ -1,0 +1,64 @@
+#!/bin/bash
+
+echo "Changing TTL"
+sudo tee /etc/sysctl.conf <<<net.ipv4.ip_default_ttl=65
+cat /etc/sysctl.conf
+
+sudo xbps-install -u xbps
+
+sudo xbps-install -Su
+
+sudo xbps-install -Su void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
+
+sudo xbps-install -Su
+
+Echo "IWD"
+sudo xbps-install -S iwd
+
+Echo "Vim and NM"
+sudo xbps-install -Su vim NetworkManager
+
+echo "Enabling Dbus"
+sudo ln -s /etc/sv/dbus /var/service
+sudo sv up dbus
+sudo sv status dbus
+
+echo "enabling NM"
+sudo ln -sv /etc/sv/NetworkManager /var/service/
+sudo sv up NetworkManager
+sudo sv status NetworkManager
+
+echo "Nvidia drivers"
+sudo xbps-query -Rs nvidia
+sudo xbps-install nvidia nvidia-libs-32bit nv-codec-headers nvidia-opencl
+
+echo "System"
+xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm sxhkd dmenu polybar feh tmux p7zip htop inxi lm_sensors pulseaudio pulsemixer git wget bc fzf plocate noto-fonts-ttf noto-fonts-cjk scrot Thunar thunar-volman gvfs gvfs-mtp mtpfs ntfs-3g ffmpeg ffmpegthumbnailer tumbler mediainfo yt-dlp xdotool kitty rxvt-unicode mpv sxiv firefox darktable gimp gmic-gimp inkscape audacity libreoffice obs mousepad qemu qbittorrent syncthing nomacs sct
+
+git clone https://github.com/vmay7742/dvoid
+
+echo "Making bspwm"
+mkdir -p .config/bspwm && mkdir -p .config/sxhkd
+
+cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
+cp /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
+
+cp $HOME/dvoid/.xinitrc .xinitrc
+cp $HOME/dvoid/.vimrc .vimrc
+cp $HOME/dvoid/.bashrc .bashrc
+cp $HOME/dvoid/.Xresources .Xresources
+
+cp $HOME/dvoid/.config/bspwmrc $HOME/.config/bspwm/
+cp $HOME/dvoid/.config/sxhkdrc $HOME/.config/sxhkd/
+cp -r $HOME/dvoid/.config/kitty $HOME/.config/
+cp -r $HOME/dvoid/.config/tmux $HOME/.config/
+cp -r $HOME/dvoid/.config/polybar $HOME/.config/
+
+sudo cp $HOME/dvoid/picom.conf /etc/xdg/
+
+echo "Polybar Mic Module"
+chmod -x $HOME/.config/polybar/modules/pipewire-mic.sh
+
+mkdir -p "/home/v/qemu"
+
+feh --bg-fill $HOME/dvoid/DSC07126.JPG
