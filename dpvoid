@@ -48,6 +48,9 @@ cp /home/v/dvoid/.vimrc /home/v/.vimrc
 cp /home/v/dvoid/.bashrc /home/v/.bashrc
 cp /home/v/dvoid/.Xresources /home/v/.Xresources
 
+echo "Roboto Font"
+cd /home/v/.local/share/ && mkdir /home/v/.local/share/fonts && wget -P /home/v/.local/share/fonts/ https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/RobotoMono.tar.xz && cd /home/v/.local/share/fonts/ && tar -xf RobotoMono.tar.xz && rm RobotoMono.tar.xz && fc-cache -fv
+
 cp /home/v/dvoid/.config/bspwmrc /home/v/.config/bspwm/
 cp /home/v/dvoid/.config/sxhkdrc /home/v/.config/sxhkd/
 cp -r /home/v/dvoid/.config/kitty /home/v/.config/
