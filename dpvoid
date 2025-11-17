@@ -37,6 +37,8 @@ xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm p
 
 git clone https://github.com/vmay7742/dvoid
 
+chmod 777 /home/v/dvoid
+
 echo "Making bspwm"
 mkdir -p .config/bspwm && mkdir -p .config/sxhkd
 
