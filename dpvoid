@@ -33,32 +33,32 @@ sudo xbps-query -Rs nvidia
 sudo xbps-install nvidia nvidia-libs-32bit nv-codec-headers nvidia-opencl
 
 echo "System"
-xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm sxhkd dmenu polybar feh tmux p7zip htop inxi lm_sensors pulseaudio pulsemixer git wget bc fzf plocate noto-fonts-ttf noto-fonts-cjk scrot Thunar thunar-volman gvfs gvfs-mtp mtpfs ntfs-3g ffmpeg ffmpegthumbnailer tumbler mediainfo yt-dlp xdotool kitty rxvt-unicode mpv sxiv firefox darktable gimp gmic-gimp inkscape audacity libreoffice obs mousepad qemu qbittorrent syncthing nomacs sct
+xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm picom sxhkd dmenu polybar feh tmux p7zip htop inxi lm_sensors pulseaudio pulsemixer git wget bc fzf plocate noto-fonts-ttf noto-fonts-cjk scrot Thunar thunar-volman gvfs gvfs-mtp mtpfs ntfs-3g ffmpeg ffmpegthumbnailer tumbler mediainfo yt-dlp xdotool kitty rxvt-unicode mpv sxiv firefox darktable gimp gmic-gimp inkscape audacity libreoffice obs mousepad qemu qbittorrent syncthing nomacs sct
 
 git clone https://github.com/vmay7742/dvoid
 
 echo "Making bspwm"
 mkdir -p .config/bspwm && mkdir -p .config/sxhkd
 
-cp /usr/share/doc/bspwm/examples/bspwmrc .config/bspwm/
-cp /usr/share/doc/bspwm/examples/sxhkdrc .config/sxhkd/
+cp /usr/share/doc/bspwm/examples/bspwmrc /home/v/.config/bspwm/
+cp /usr/share/doc/bspwm/examples/sxhkdrc /home/v/.config/sxhkd/
 
-cp $HOME/dvoid/.xinitrc .xinitrc
-cp $HOME/dvoid/.vimrc .vimrc
-cp $HOME/dvoid/.bashrc .bashrc
-cp $HOME/dvoid/.Xresources .Xresources
+cp /home/v/dvoid/.xinitrc /home/v/.xinitrc
+cp /home/v/dvoid/.vimrc /home/v/.vimrc
+cp /home/v/dvoid/.bashrc /home/v/.bashrc
+cp /home/v/dvoid/.Xresources /home/v/.Xresources
 
-cp $HOME/dvoid/.config/bspwmrc $HOME/.config/bspwm/
-cp $HOME/dvoid/.config/sxhkdrc $HOME/.config/sxhkd/
-cp -r $HOME/dvoid/.config/kitty $HOME/.config/
-cp -r $HOME/dvoid/.config/tmux $HOME/.config/
-cp -r $HOME/dvoid/.config/polybar $HOME/.config/
+cp /home/v/dvoid/.config/bspwmrc /home/v/.config/bspwm/
+cp /home/v/dvoid/.config/sxhkdrc /home/v/.config/sxhkd/
+cp -r /home/v/dvoid/.config/kitty /home/v/.config/
+cp -r /home/v/dvoid/.config/tmux /home/v/.config/
+cp -r /home/v/dvoid/.config/polybar /home/v/.config/
 
-sudo cp $HOME/dvoid/picom.conf /etc/xdg/
+sudo cp /home/v/dvoid/picom.conf /etc/xdg/
 
 echo "Polybar Mic Module"
-chmod -x $HOME/.config/polybar/modules/pipewire-mic.sh
+chmod -x /home/v/.config/polybar/modules/pipewire-mic.sh
 
 mkdir -p "/home/v/qemu"
 
-feh --bg-fill $HOME/dvoid/DSC07126.JPG
+feh --bg-fill /home/v/dvoid/DSC07126.JPG
