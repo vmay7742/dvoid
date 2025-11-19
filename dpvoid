@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -e
+set -o pipefail
+
+echo "%wheel ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/wheel
+sudo chmod 440 /etc/sudoers.d/wheel
 
 echo "Changing TTL"
 sudo tee /etc/sysctl.conf <<<net.ipv4.ip_default_ttl=65
@@ -33,7 +39,7 @@ sudo xbps-query -Rs nvidia
 sudo xbps-install nvidia nvidia-libs-32bit nv-codec-headers nvidia-opencl
 
 echo "System"
-xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm picom sxhkd dmenu polybar feh tmux p7zip htop inxi lm_sensors pulseaudio pulsemixer wget bc fzf plocate noto-fonts-ttf noto-fonts-cjk scrot Thunar thunar-volman gvfs gvfs-mtp mtpfs ntfs-3g ffmpeg ffmpegthumbnailer tumbler mediainfo yt-dlp xdotool kitty rxvt-unicode mpv sxiv firefox darktable gimp gmic-gimp inkscape audacity libreoffice obs mousepad qemu qbittorrent syncthing nomacs sct
+xbps-install xorg libX11-devel libXinerama-devel libXft-devel base-devel bspwm picom sxhkd dmenu polybar feh tmux p7zip htop inxi lm_sensors pulseaudio pulsemixer wget bc fzf plocate bash-completion noto-fonts-ttf noto-fonts-cjk scrot Thunar thunar-volman gvfs gvfs-mtp mtpfs ntfs-3g ffmpeg ffmpegthumbnailer tumbler mediainfo yt-dlp xdotool kitty rxvt-unicode mpv sxiv firefox darktable gimp gmic-gimp inkscape audacity libreoffice obs mousepad qemu qbittorrent syncthing nomacs sct
 
 git clone https://github.com/vmay7742/dvoid
 
